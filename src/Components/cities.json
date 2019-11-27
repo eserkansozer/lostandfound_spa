@@ -1,0 +1,14 @@
+[
+    {
+        "name": "London",
+        "count": 10
+    },
+    {
+        "name": "Manchester",
+        "count": 18
+    },
+    {
+        "name":"Birmingham",
+        "count": 12
+    }
+]
