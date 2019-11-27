@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LostConfirm = (props) => {
+const FoundConfirm = (props) => {
 
         return (
             <section className="page-section">
@@ -20,8 +20,8 @@ const LostConfirm = (props) => {
                             <h4>Please confirm following details are correct:</h4>
 
                             <div>
-                                You have lost <strong>{props.state.selectedColour} {props.state.selectedType}</strong> in <strong>{props.state.selectedLocationName}</strong> and you agree to be securely contacted on 
-                                your <strong>{props.state.enteredEmail}</strong> email address by us if a similar item is found.
+                                You have found <strong>{props.state.selectedColour} {props.state.selectedType}</strong> in <strong>{props.state.selectedLocationName}</strong> and you agree to be securely contacted on 
+                                your <strong>{props.state.enteredEmail}</strong> email address by us if a similar item is lost.
                             </div>
                             <br />
                             <div className="form-group">
@@ -34,4 +34,4 @@ const LostConfirm = (props) => {
         );
     }
 
-export default LostConfirm;
+export default FoundConfirm;

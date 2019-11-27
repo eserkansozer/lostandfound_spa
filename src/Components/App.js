@@ -4,6 +4,7 @@ import './App.css';//WebPack will include this css
 import Header from './Common/Header'
 import Navigation from './Common/Navigation'
 import LostScenario from './LostScenario';
+import FoundScenario from './FoundScenario';
 import ErrorBoundary from './Common/ErrorBoundary';
 import context from '../context/context'
 
@@ -21,7 +22,7 @@ class App extends Component {
                 <Route path='/lost' component={LostScenario} />
               </div>
               <div id="foundWrapper" className="page-wrapper">
-                {/* <Route path='/found' component={FoundScenario} /> */}
+                <Route path='/found' component={FoundScenario} />
               </div>
             </context.Provider>
 

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import LostLocation from './Lost/LostLocation'
-import LostDetails from './Lost/LostDetails';
-import LostEmail from './Lost/LostEmail';
+import FoundLocation from './Found/FoundLocation'
+import FoundDetails from './Found/FoundDetails';
+import FoundEmail from './Found/FoundEmail';
 import cities from './cities.json'
-import LostConfirm from './Lost/LostConfirm';
+import FoundConfirm from './Found/FoundConfirm';
 import axios from 'axios';
 
-class LostScenario extends Component {
+class FoundScenario extends Component {
   constructor() {
     super();
     this.locations = cities;
@@ -24,17 +24,8 @@ class LostScenario extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-      document.getElementById('lostWrapper').scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+      document.getElementById('foundWrapper').scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
     }, 500);
-
-
-    // this.setState({//set state in async call handlers to HTTP. Not here.
-    //   step : 1,
-    //   selectedLocationName: this.locations[0].name,
-    //   selectedLocationCount: this.locations[0].count,
-    //   selectedType: 'keys',
-    //   selectedColour: 'red'
-    // });
   }
 
   //use arrow functions syntax for this keyword
@@ -79,14 +70,14 @@ class LostScenario extends Component {
   }
 
   submit = () =>{
-    let lostItem = {
+    let FoundItem = {
       Type : this.state.selectedType,
       Colour: this.state.selectedColour,
-      LostLocation : this.state.selectedLocationName,
-      LostEmail : this.state.enteredEmail
+      FoundLocation : this.state.selectedLocationName,
+      FoundEmail : this.state.enteredEmail
     };
    
-    axios.post('https://localhost:5001/api/lost', lostItem)
+    axios.post('https://localhost:5001/api/found', FoundItem)
     .then(response => {
       console.log(response)
     });
@@ -100,19 +91,19 @@ class LostScenario extends Component {
     switch(this.state.step){
       case 1:
         return (
-          <LostLocation locations={this.locations} selectedLocationName = {this.state.selectedLocationName} selectedLocationCount = {this.state.selectedLocationCount} selectLocationHandler={this.selectLocation} nextStepHandler={this.nextStep} />
+          <FoundLocation locations={this.locations} selectedLocationName = {this.state.selectedLocationName} selectedLocationCount = {this.state.selectedLocationCount} selectLocationHandler={this.selectLocation} nextStepHandler={this.nextStep} />
         );
       case 2:
         return(
-          <LostDetails colours={this.colours} types={this.types} selectedColour = {this.state.selectedColour} selectedType = {this.state.selectedType} selectTypeHandler={this.selectType} selectColourHandler ={this.selectColour} nextStepHandler={this.nextStep}/>
+          <FoundDetails colours={this.colours} types={this.types} selectedColour = {this.state.selectedColour} selectedType = {this.state.selectedType} selectTypeHandler={this.selectType} selectColourHandler ={this.selectColour} nextStepHandler={this.nextStep}/>
         );
       case 3:
         return(
-          <LostEmail enteredEmail={this.state.enteredEmail} emailChangeHandler={this.emailChange} nextStepHandler={this.nextStep}/>
+          <FoundEmail enteredEmail={this.state.enteredEmail} emailChangeHandler={this.emailChange} nextStepHandler={this.nextStep}/>
         );
       case 4:
           return(
-            <LostConfirm state={this.state} submitHandler={this.submit}/>
+            <FoundConfirm state={this.state} submitHandler={this.submit}/>
           );
       default:
           return null;
@@ -120,4 +111,4 @@ class LostScenario extends Component {
   }
 }
 
-export default LostScenario
+export default FoundScenario

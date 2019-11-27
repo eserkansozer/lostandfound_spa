@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LostDetails = (props) => {
+const FoundDetails = (props) => {
         return (
             <section className="page-section">
                 <div className='container'>
@@ -19,7 +19,7 @@ const LostDetails = (props) => {
                         <div className="col-lg-8 mx-auto">
                             <div className="control-group">
                                 <div className="form-group controls mb-0 pb-2">
-                                    <label htmlFor="types">What kind of thing did you lose?</label>
+                                    <label htmlFor="types">What kind of thing did you find?</label>
                                     <select name="types" id="types" className='form-control' onChange={props.selectTypeHandler} value={props.selectedType}>
                                         {
                                             props.types.map((type, index) => <option name="{type}" key={index}>{type}</option>)
@@ -47,4 +47,4 @@ const LostDetails = (props) => {
         );
     }
 
-export default LostDetails
+export default FoundDetails

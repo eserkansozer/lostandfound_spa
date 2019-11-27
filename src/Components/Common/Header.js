@@ -3,7 +3,6 @@ import logo from '../avataaars.svg';
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
-import InfoBox from './InfoBox'
 
 class Header extends Component {
 
