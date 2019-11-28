@@ -5,6 +5,7 @@ import Header from './Common/Header'
 import Navigation from './Common/Navigation'
 import LostScenario from './LostScenario';
 import FoundScenario from './FoundScenario';
+import StatusCheck from './Status/StatusCheck';
 import ErrorBoundary from './Common/ErrorBoundary';
 import context from '../context/context'
 
@@ -24,8 +25,10 @@ class App extends Component {
               <div id="foundWrapper" className="page-wrapper">
                 <Route path='/found' component={FoundScenario} />
               </div>
+              <div id="statusWrapper" className="page-wrapper">
+                <Route path='/status' component={StatusCheck} />
+              </div>
             </context.Provider>
-
           </ErrorBoundary>
         </div>
       </div>
