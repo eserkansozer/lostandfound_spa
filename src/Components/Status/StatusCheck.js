@@ -28,9 +28,10 @@ class StatusCheck extends Component {
         axios.get('https://localhost:5001/api/status/' + this.state.searchReference)
             .then(response => {
                 if (response.data) {
+
                     this.setState({
                         searchedReference: response.id,
-                        status: response.isMatched ? 'Matched' : 'In Progress',
+                        status: response.data.isMatched ? (response.data.isMatchConfirmed ? 'Matched and confirmed' : 'Matched, waiting for confirmation') : 'Search in progress',
                     });
                 } else {
                     this.setState({
@@ -67,7 +68,7 @@ class StatusCheck extends Component {
                                     <button className='btn btn-primary btn-xl' onClick={this.checkWithReferenceNumber}>Submit</button>
                                 </div>
                                 {
-                                    this.state.status === "Matched" || this.state.status === "In Progress"? 
+                                    this.state.status && this.state.status != "NotFound"? 
                                     <div>
                                         <span>Item with reference number <em>{this.state.searchedReference}</em> has status: </span> <strong>{this.state.status}</strong>
                                     </div> 

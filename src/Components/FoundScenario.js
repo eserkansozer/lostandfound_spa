@@ -73,7 +73,7 @@ class FoundScenario extends Component {
     let FoundItem = {
       Type : this.state.selectedType,
       Colour: this.state.selectedColour,
-      FoundLocation : this.state.selectedLocationName,
+      Location : this.state.selectedLocationName,
       FoundEmail : this.state.enteredEmail
     };
    

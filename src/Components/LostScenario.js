@@ -82,7 +82,7 @@ class LostScenario extends Component {
     let lostItem = {
       Type : this.state.selectedType,
       Colour: this.state.selectedColour,
-      LostLocation : this.state.selectedLocationName,
+      Location : this.state.selectedLocationName,
       LostEmail : this.state.enteredEmail
     };
    
