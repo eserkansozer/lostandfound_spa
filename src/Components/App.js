@@ -8,6 +8,7 @@ import FoundScenario from './FoundScenario';
 import StatusCheck from './Status/StatusCheck';
 import ErrorBoundary from './Common/ErrorBoundary';
 import context from '../context/context'
+import Confirmation from './Status/Confirmation';
 
 class App extends Component {
 
@@ -27,6 +28,9 @@ class App extends Component {
               </div>
               <div id="statusWrapper" className="page-wrapper">
                 <Route path='/status' component={StatusCheck} />
+              </div>
+              <div id="confirmationWrapper" className="page-wrapper">
+                <Route path='/confirmation' component={Confirmation} />
               </div>
             </context.Provider>
           </ErrorBoundary>
