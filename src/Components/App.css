@@ -9720,6 +9720,17 @@ a.text-dark:hover, a.text-dark:focus {
   padding: 0.8rem;
 }
 
+#mainNav .nav-avatar{
+  max-height: 40px;
+  display: none;
+}
+
+@media (min-width: 992px) {
+  #mainNav .nav-avatar{
+    display: inline;
+  }
+}
+
 @media (min-width: 992px) {
   #mainNav {
     padding-top: 1.5rem;
