@@ -42,7 +42,7 @@ class Header extends Component {
             <div className="divider-custom-line"></div>
           </div>
 
-          <p className="masthead-subheading font-weight-light mb-0">A place to search and find your lost belongings...</p>
+          <p className="masthead-subheading font-weight-light mb-0">A place to unite with your lost belongings...</p>
           <div className='button-wrapper mt-4'>
             <div>
               <Link className='btn btn-outline-light btn-lg btn-block' to='/lost'>I lost something</Link>
