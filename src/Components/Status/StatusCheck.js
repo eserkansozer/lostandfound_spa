@@ -46,7 +46,7 @@ class StatusCheck extends Component {
         return (
             <section className="page-section">
                 <div className="container">
-                    <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">Status</h2>
+                    <h2 className="page-section-heading text-center case text-secondary mb-0">Status</h2>
 
                     <div className="divider-custom">
                         <div className="divider-custom-line"></div>
@@ -68,7 +68,7 @@ class StatusCheck extends Component {
                                     <button className='btn btn-primary btn-xl' onClick={this.checkWithReferenceNumber}>Submit</button>
                                 </div>
                                 {
-                                    this.state.status && this.state.status != "NotFound"? 
+                                    this.state.status && this.state.status !== "NotFound"? 
                                     <div>
                                         <span>Item with reference number <em>{this.state.searchedReference}</em> has status: </span> <strong>{this.state.status}</strong>
                                     </div> 

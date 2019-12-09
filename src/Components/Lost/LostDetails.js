@@ -5,7 +5,7 @@ const LostDetails = (props) => {
             <section className="page-section">
                 <div className='container'>
 
-                    <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">Details</h2>
+                    <h2 className="page-section-heading text-center case text-secondary mb-0">Details</h2>
 
                     <div className="divider-custom">
                         <div className="divider-custom-line"></div>

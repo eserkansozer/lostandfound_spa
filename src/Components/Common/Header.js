@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../avataaars.svg';
+import logo from '../logo.svg';
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
@@ -32,7 +32,7 @@ class Header extends Component {
 
           <img className="masthead-avatar mb-5" src={logo} alt="" />
 
-          <h1 className="masthead-heading text-uppercase mb-0">{this.props.title}</h1>
+          <h1 className="masthead-heading mb-0">{this.props.title}</h1>
 
           <div className="divider-custom divider-light">
             <div className="divider-custom-line"></div>
