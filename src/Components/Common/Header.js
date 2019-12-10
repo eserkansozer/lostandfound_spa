@@ -45,10 +45,10 @@ class Header extends Component {
           <p className="masthead-subheading font-weight-light mb-0">A place to unite with your lost belongings...</p>
           <div className='button-wrapper mt-4'>
             <div>
-              <Link className='btn btn-outline-light btn-lg btn-block' to='/lost'>I lost something</Link>
+              <Link className='btn btn-light btn-lg btn-block' to='/lost'>I lost something</Link>
             </div>
             <div className="mt-4 mb-1">
-              <Link className='btn btn-light btn-lg btn-block' to='/found'>I found something</Link>
+              <Link className='btn btn-outline-light btn-lg btn-block' to='/found'>I found something</Link>
             </div>
             {this.state.totalMatchCount ?  <p>We have already matched {this.state.totalMatchCount} lost items with their owners!</p> : null}
           </div>

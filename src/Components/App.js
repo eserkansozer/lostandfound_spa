@@ -10,6 +10,7 @@ import ErrorBoundary from './Common/ErrorBoundary';
 import context from '../context/context'
 import Confirmation from './Status/Confirmation';
 import Deleted from './Status/Deleted';
+import UnmatchConfirmation from './Status/UnmatchConfirmation';
 
 class App extends Component {
 
@@ -32,6 +33,9 @@ class App extends Component {
               </div>
               <div id="confirmationWrapper" className="page-wrapper">
                 <Route path='/confirmation' component={Confirmation} />
+              </div>
+              <div id="unmatchConfirmationWrapper" className="page-wrapper">
+                <Route path='/UnmatchConfirmation' component={UnmatchConfirmation} />
               </div>
               <div id="deletedWrapper" className="page-wrapper">
                 <Route path='/deleted' component={Deleted} />
