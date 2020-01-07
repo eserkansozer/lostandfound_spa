@@ -6,6 +6,9 @@ import {createStore} from 'redux';
 import rootReducer from './redux/reducer'
 import {Provider} from 'react-redux'
 import App from './Components/App';
+import axios from 'axios';
+
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;//global setting for all app
 
 const store = createStore(rootReducer);
 

@@ -77,7 +77,7 @@ class FoundScenario extends Component {
       FoundEmail : this.state.enteredEmail
     };
    
-    axios.post('https://localhost:5001/api/found', FoundItem)
+    axios.post('/found', FoundItem)
     .then(response => {
       console.log(response)
     });

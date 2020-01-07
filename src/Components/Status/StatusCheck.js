@@ -25,7 +25,7 @@ class StatusCheck extends Component {
     }
 
     checkWithReferenceNumber = () => {
-        axios.get('https://localhost:5001/api/status/' + this.state.searchReference)
+        axios.get('/status/' + this.state.searchReference)
             .then(response => {
                 if (response.data) {
 

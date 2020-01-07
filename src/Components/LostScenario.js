@@ -86,7 +86,7 @@ class LostScenario extends Component {
       LostEmail : this.state.enteredEmail
     };
    
-    axios.post('https://localhost:5001/api/lost', lostItem)
+    axios.post('/lost', lostItem)
     .then(response => {
       console.log(response)
     });

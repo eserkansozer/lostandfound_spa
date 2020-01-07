@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
-import $ from 'jquery';
+import axios from 'axios';
 
 class Header extends Component {
 
@@ -14,14 +14,11 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    $.ajax({
-      type: 'GET',
-      url: 'https://localhost:5001/api/lost', 
-      success: response => {
-        this.setState({
-          totalMatchCount: response.length
-        });
-      }
+    axios.get('/lost')
+    .then(response => {
+      this.setState({
+        totalMatchCount: response.length
+      });
     });
   } 
 
