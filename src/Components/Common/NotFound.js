@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
 
-class Confirmation extends Component{
+class NotFound extends Component{
 
     componentDidMount() {
         setTimeout(() => {
-            document.getElementById('confirmationWrapper').scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+            document.getElementById('notFoundWrapper').scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
         }, 500);
     }
 
 render() {
 
         return (
-            <div id="confirmationWrapper" className="page-wrapper">
+            <div id="notFoundWrapper" className="page-wrapper">
             <section className="page-section">
                 <div className="container">
-                    <h2 className="page-section-heading text-center case text-secondary mb-0">Confirmation</h2>
+                    <h2 className="page-section-heading text-center case text-secondary mb-0">Oops!</h2>
 
                     <div className="divider-custom">
                         <div className="divider-custom-line"></div>
@@ -26,7 +26,7 @@ render() {
 
                     <div className='row'>
                         <div className="col-lg-8 mx-auto">
-                            <p>Thanks for confirming the match for your lost item. Happy to hear you found your belongings!</p>
+                            <p>Page not found :(</p>
                         </div>
                     </div>
                 </div>
@@ -37,4 +37,4 @@ render() {
 
 }
 
-export default Confirmation;
+export default NotFound;

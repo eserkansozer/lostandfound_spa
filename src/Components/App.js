@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';//WebPack will include this css
 import Header from './Common/Header'
 import Navigation from './Common/Navigation'
@@ -11,6 +11,7 @@ import context from '../context/context'
 import Confirmation from './Status/Confirmation';
 import Deleted from './Status/Deleted';
 import UnmatchConfirmation from './Status/UnmatchConfirmation';
+import NotFound from './Common/NotFound';
 
 class App extends Component {
 
@@ -22,24 +23,16 @@ class App extends Component {
         <div className='container'>
           <ErrorBoundary>
             <context.Provider value={{ infoBoxEnabled: true }}>
-              <div id="lostWrapper" className="page-wrapper">
+              <Switch>
+                <Route path="/" exact render={() => <div></div>} />
                 <Route path='/lost' component={LostScenario} />
-              </div>
-              <div id="foundWrapper" className="page-wrapper">
                 <Route path='/found' component={FoundScenario} />
-              </div>
-              <div id="statusWrapper" className="page-wrapper">
                 <Route path='/status' component={StatusCheck} />
-              </div>
-              <div id="confirmationWrapper" className="page-wrapper">
                 <Route path='/confirmation' component={Confirmation} />
-              </div>
-              <div id="unmatchConfirmationWrapper" className="page-wrapper">
                 <Route path='/UnmatchConfirmation' component={UnmatchConfirmation} />
-              </div>
-              <div id="deletedWrapper" className="page-wrapper">
                 <Route path='/deleted' component={Deleted} />
-              </div>
+                <Route component={NotFound} />
+              </Switch>
             </context.Provider>
           </ErrorBoundary>
         </div>

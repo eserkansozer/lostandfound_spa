@@ -100,19 +100,27 @@ class LostScenario extends Component {
     switch(this.state.step){
       case 1:
         return (
-          <LostLocation locations={this.locations} selectedLocationName = {this.state.selectedLocationName} selectedLocationCount = {this.state.selectedLocationCount} selectLocationHandler={this.selectLocation} nextStepHandler={this.nextStep} />
+          <div id="lostWrapper" className="page-wrapper">
+            <LostLocation locations={this.locations} selectedLocationName = {this.state.selectedLocationName} selectedLocationCount = {this.state.selectedLocationCount} selectLocationHandler={this.selectLocation} nextStepHandler={this.nextStep} />
+          </div>
         );
       case 2:
         return(
-          <LostDetails colours={this.colours} types={this.types} selectedColour = {this.state.selectedColour} selectedType = {this.state.selectedType} selectTypeHandler={this.selectType} selectColourHandler ={this.selectColour} nextStepHandler={this.nextStep}/>
+          <div id="lostWrapper" className="page-wrapper">
+            <LostDetails colours={this.colours} types={this.types} selectedColour = {this.state.selectedColour} selectedType = {this.state.selectedType} selectTypeHandler={this.selectType} selectColourHandler ={this.selectColour} nextStepHandler={this.nextStep}/>
+          </div>
         );
       case 3:
         return(
-          <LostEmail enteredEmail={this.state.enteredEmail} emailChangeHandler={this.emailChange} nextStepHandler={this.nextStep}/>
+          <div id="lostWrapper" className="page-wrapper">
+            <LostEmail enteredEmail={this.state.enteredEmail} emailChangeHandler={this.emailChange} nextStepHandler={this.nextStep}/>
+          </div>
         );
       case 4:
           return(
+          <div id="lostWrapper" className="page-wrapper">
             <LostConfirm state={this.state} submitHandler={this.submit}/>
+          </div>
           );
       default:
           return null;

@@ -44,6 +44,7 @@ class StatusCheck extends Component {
 
     render() {
         return (
+            <div id="statusWrapper" className="page-wrapper">
             <section className="page-section">
                 <div className="container">
                     <h2 className="page-section-heading text-center case text-secondary mb-0">Status</h2>
@@ -81,6 +82,7 @@ class StatusCheck extends Component {
                     </div>
                 </div>
             </section>
+            </div>
         );
     }
 }

@@ -91,19 +91,27 @@ class FoundScenario extends Component {
     switch(this.state.step){
       case 1:
         return (
-          <FoundLocation locations={this.locations} selectedLocationName = {this.state.selectedLocationName} selectedLocationCount = {this.state.selectedLocationCount} selectLocationHandler={this.selectLocation} nextStepHandler={this.nextStep} />
+          <div id="foundWrapper" className="page-wrapper">
+            <FoundLocation locations={this.locations} selectedLocationName = {this.state.selectedLocationName} selectedLocationCount = {this.state.selectedLocationCount} selectLocationHandler={this.selectLocation} nextStepHandler={this.nextStep} />
+         </div>
         );
       case 2:
         return(
+          <div id="foundWrapper" className="page-wrapper">
           <FoundDetails colours={this.colours} types={this.types} selectedColour = {this.state.selectedColour} selectedType = {this.state.selectedType} selectTypeHandler={this.selectType} selectColourHandler ={this.selectColour} nextStepHandler={this.nextStep}/>
+          </div>
         );
       case 3:
         return(
+          <div id="foundWrapper" className="page-wrapper">
           <FoundEmail enteredEmail={this.state.enteredEmail} emailChangeHandler={this.emailChange} nextStepHandler={this.nextStep}/>
+          </div>
         );
       case 4:
           return(
+            <div id="foundWrapper" className="page-wrapper">
             <FoundConfirm state={this.state} submitHandler={this.submit}/>
+            </div>
           );
       default:
           return null;
