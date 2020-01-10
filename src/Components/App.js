@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';//WebPack will include this css
 import Header from './Common/Header'
 import Navigation from './Common/Navigation'
@@ -27,10 +27,12 @@ class App extends Component {
                 <Route path="/" exact render={() => <div></div>} />
                 <Route path='/lost' component={LostScenario} />
                 <Route path='/found' component={FoundScenario} />
+                <Route path='/status/:id' component={StatusCheck} />
                 <Route path='/status' component={StatusCheck} />
                 <Route path='/confirmation' component={Confirmation} />
                 <Route path='/UnmatchConfirmation' component={UnmatchConfirmation} />
                 <Route path='/deleted' component={Deleted} />
+                <Redirect from='/home' to='/' />
                 <Route component={NotFound} />
               </Switch>
             </context.Provider>

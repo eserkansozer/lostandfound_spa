@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../logo.svg';
 
 const Navigation = () => {
@@ -15,13 +15,13 @@ const Navigation = () => {
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item mx-0 mx-lg-1">
-                <Link className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" to="/lost">Lost</Link>
+                <NavLink className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" to="/lost">Lost</NavLink>
               </li>
               <li className="nav-item mx-0 mx-lg-1">
-                <Link className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" to='/found'>Found</Link>
+                <NavLink className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" to={{pathname: '/found'/* , hash: '#blabla', search: '?qs=xxx' */}}>Found</NavLink>
               </li>
               <li className="nav-item mx-0 mx-lg-1">
-                <a className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/status">Check status</a>
+                <NavLink activeClassName="active" className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" to="/status">Check status</NavLink>
               </li>
             </ul>
           </div>

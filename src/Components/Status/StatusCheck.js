@@ -6,7 +6,7 @@ class StatusCheck extends Component {
     constructor() {
         super();
         this.state = {
-            searchReference: null,
+            searchReference: '',
             searchedReference: null,
             status: null,
         }
@@ -16,6 +16,16 @@ class StatusCheck extends Component {
         setTimeout(() => {
             document.getElementById('statusWrapper').scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
         }, 500);
+
+        let id = this.props.match.params.id;
+        if (id) {
+            setTimeout(() => {
+                this.setState({
+                    searchReference: id
+                });
+                this.checkWithReferenceNumber();
+            }, 100);
+        }
     }
 
     referenceChangeHandler = (event) => {
@@ -62,7 +72,7 @@ class StatusCheck extends Component {
                             <div className="control-group">
                                 <div className="form-group controls mb-0 pb-2">
                                     <label htmlFor="locations">Please enter your reference number:</label>
-                                    <input name="reference" id="reference" className="form-control" type="text" value={this.state.reference} onChange={this.referenceChangeHandler} />
+                                    <input name="reference" id="reference" className="form-control" type="text" value={this.state.searchReference} onChange={this.referenceChangeHandler} />
                                 </div>
                                 <br />
                                 <div className="form-group">

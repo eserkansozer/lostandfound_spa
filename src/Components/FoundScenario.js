@@ -85,6 +85,8 @@ class FoundScenario extends Component {
     this.setState({
       step: 0
     });
+
+    this.props.history.push('/');
   }
 
   render() {
