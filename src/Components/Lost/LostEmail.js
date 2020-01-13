@@ -1,8 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import InfoBox from '../Common/InfoBox'
+import ValidationService from '../../services/validateService';
 
-const LostEmail = (props) => {
+class LostEmail extends Component {
+    constructor() {
+        super();
+        this.state = {
+            emailInputValidation: {
+                isValid: false,
+                isDirty: false
+            }
+        }
+    }
 
+    emailChange = (event) => {
+        this.setState(
+            {
+                emailInputValidation: {
+                    isDirty: this.state.emailInputValidation.isDirty || event.target.value.length > 0,
+                    isValid: ValidationService.validateEmail(event.target.value)
+                }
+            }
+        )
+
+        this.props.emailChangeHandler(event);
+    }
+
+    nextStep = () =>{
+        if(this.state.emailInputValidation.isValid){
+            this.props.nextStepHandler();
+        }
+    }
+
+    render() {
         return (
             <section className="page-section">
                 <div className="container">
@@ -21,13 +51,17 @@ const LostEmail = (props) => {
                             <div className="control-group">
                                 <div className="form-group controls mb-0 pb-2">
                                     <label htmlFor="email">Please leave your email address</label>
-                                    <input name="email" id="email" className="form-control" type="email" value={props.enteredEmail} onChange={props.emailChangeHandler} />
+                                    <input name="email" id="email" 
+                                    className={this.state.emailInputValidation.isDirty && !this.state.emailInputValidation.isValid ? 'form-control invalid' : 'form-control valid'}
+                                    type="email" 
+                                    value={this.props.enteredEmail} 
+                                    onChange={this.emailChange} />
                                 </div>
-
+                            <span className={this.state.emailInputValidation.isDirty && !this.state.emailInputValidation.isValid ? 'error-invalid' : 'error-valid'}>Please provide a valid email address!</span>
                             </div>
                             <br />
                             <div className="form-group">
-                            <button className='btn btn-primary btn-xl' onClick={props.nextStepHandler}>Next</button>
+                                <button className='btn btn-primary btn-xl' disabled={!this.state.emailInputValidation.isValid}  onClick={this.nextStep}>Next</button>
                             </div>
                             <InfoBox info="We will be in contact if anything reported found matching your definitions..."></InfoBox>
                         </div>
@@ -36,5 +70,6 @@ const LostEmail = (props) => {
             </section>
         );
     }
+}
 
 export default LostEmail;

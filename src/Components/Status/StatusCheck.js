@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ValidationService from '../../services/validateService';
 
 class StatusCheck extends Component {
 
@@ -9,6 +10,10 @@ class StatusCheck extends Component {
             searchReference: '',
             searchedReference: null,
             status: null,
+            referenceInputValidation: {
+                isValid: false,
+                isDirty: false
+            }
         }
     }
 
@@ -21,16 +26,26 @@ class StatusCheck extends Component {
         if (id) {
             setTimeout(() => {
                 this.setState({
-                    searchReference: id
+                    searchReference: id,
+                    referenceInputValidation: {
+                        isDirty: this.state.referenceInputValidation.isDirty || id.length > 0,
+                        isValid: ValidationService.validateReferenceNumber(id)
+                    }
                 });
-                this.checkWithReferenceNumber();
+                if(this.state.referenceInputValidation.isValid){
+                    this.checkWithReferenceNumber();
+                }
             }, 100);
         }
     }
 
     referenceChangeHandler = (event) => {
         this.setState({
-            searchReference: event.target.value
+            searchReference: event.target.value,
+            referenceInputValidation: {
+                isDirty: this.state.referenceInputValidation.isDirty || event.target.value.length > 0,
+                isValid: ValidationService.validateReferenceNumber(event.target.value)
+            }
         });
     }
 
@@ -72,11 +87,17 @@ class StatusCheck extends Component {
                             <div className="control-group">
                                 <div className="form-group controls mb-0 pb-2">
                                     <label htmlFor="locations">Please enter your reference number:</label>
-                                    <input name="reference" id="reference" className="form-control" type="text" value={this.state.searchReference} onChange={this.referenceChangeHandler} />
+                                    <input name="reference" 
+                                    id="reference" 
+                                    className={this.state.referenceInputValidation.isDirty && !this.state.referenceInputValidation.isValid ? 'form-control invalid' : 'form-control valid'} 
+                                    type="text" 
+                                    value={this.state.searchReference} 
+                                    onChange={this.referenceChangeHandler} />
                                 </div>
+                                <span className={this.state.referenceInputValidation.isDirty && !this.state.referenceInputValidation.isValid ? 'error-invalid' : 'error-valid'}>Please provide a valid reference number!</span>
                                 <br />
                                 <div className="form-group">
-                                    <button className='btn btn-primary btn-xl' onClick={this.checkWithReferenceNumber}>Submit</button>
+                                    <button className='btn btn-primary btn-xl' onClick={this.checkWithReferenceNumber} disabled={!this.state.referenceInputValidation.isValid}>Submit</button>
                                 </div>
                                 {
                                     this.state.status && this.state.status !== "NotFound"? 

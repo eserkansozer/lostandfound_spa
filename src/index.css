@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.error-invalid{
+  display: inline;
+  color: red;
+}
+
+.error-valid{
+  display: none;
+}
