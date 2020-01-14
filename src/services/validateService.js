@@ -5,7 +5,7 @@ const ValidationService = {
     },
 
     validateReferenceNumber(ref){
-        return +ref >= 100000
+        return !isNaN(ref);
     }
 };
 

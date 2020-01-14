@@ -16,8 +16,9 @@ class Header extends Component {
   componentDidMount() {
     axios.get('/lost')
     .then(response => {
+      debugger;
       this.setState({
-        totalMatchCount: response.length
+        totalMatchCount: response.data.length
       });
     });
   } 
